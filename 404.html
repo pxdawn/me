@@ -2,102 +2,104 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>404 Object Not Found</title>
-		<style>body {
-  background: #000;
-  color: #fff;
-  font-family: "Lucida Console", Monaco, monospace;
-  line-height: 1.5;
+		<title>Spacy 404 with count up</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/flexslider.min.css"/>
+		<style>@import url("https://fonts.googleapis.com/css?family=Roboto+Mono:300,500");
+html, body {
+  width: 100%;
+  height: 100%;
 }
 
-a {
-  color: #fff;
-  text-decoration: none;
-  border-bottom: solid 2px;
+body {
+  background-image: url(Picture.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: "Roboto Mono", "Liberation Mono", Consolas, monospace;
+  color: rgba(255, 255, 255, 0.87);
 }
 
-@media (min-width: 640px) {
-  body {
-    background-image: url(Image.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 100vh;
-  }
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .content {
-    width: 550px;
-    height: 330px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #333;
-    padding: 45px 20px 20px;
-    box-sizing: border-box;
-    box-shadow: 0 0 25px rgba(0, 0, 0, .5);
-    border-radius: 5px 5px 0 0;
-  }
+.container,
+.container > .row,
+.container > .row > div {
+  height: 100%;
+}
 
-  .browser-bar {
-    background: #f9f9f3;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 5px;
-    overflow: hidden;
-    border-radius: 5px 5px 0 0;
-  }
-
-  .button {
-    display: inline-block;
-    float: left;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-  }
-
-  .close {
-    background: #fc635d;
-  }
-
-  .min {
-    background: #fdbc40;
-  }
-
-  .max {
-    background: #34c84a;
-  }
+#countUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#countUp .number {
+  font-size: 4rem;
+  font-weight: 500;
+}
+#countUp .number + .text {
+  margin: 0 0 1rem;
+}
+#countUp .text {
+  font-weight: 300;
+  text-align: center;
 }</style>
 	</head>
 	<body>
-		<div class="content">
-		  <div class="browser-bar">
-		    <span class="close button"></span>
-		    <span class="min button"></span>
-		    <span class="max button"></span>
-		  </div>
-		  <div class="text"></div>
+		<div class="container">
+		    <div class="row">
+		        <div class="xs-12 md-6 mx-auto">
+		            <div id="countUp">
+		                <div class="number" data-count="404">0</div>
+		                <div class="text">Page not found</div>
+		                <div class="text">This may not mean anything.</div>
+		                <div class="text">I'm probably working on something that has blown up.</div>
+		            </div>
+		        </div>
+		    </div>
 		</div>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		<script>!function(t){"use strict";var s=function(s,e){this.el=t(s),this.options=t.extend({},t.fn.typed.defaults,e),this.isInput=this.el.is("input"),this.attr=this.options.attr,this.showCursor=this.isInput?!1:this.options.showCursor,this.elContent=this.attr?this.el.attr(this.attr):this.el.text(),this.contentType=this.options.contentType,this.typeSpeed=this.options.typeSpeed,this.startDelay=this.options.startDelay,this.backSpeed=this.options.backSpeed,this.backDelay=this.options.backDelay,this.stringsElement=this.options.stringsElement,this.strings=this.options.strings,this.strPos=0,this.arrayPos=0,this.stopNum=0,this.loop=this.options.loop,this.loopCount=this.options.loopCount,this.curLoop=0,this.stop=!1,this.cursorChar=this.options.cursorChar,this.shuffle=this.options.shuffle,this.sequence=[],this.build()};s.prototype={constructor:s,init:function(){var t=this;t.timeout=setTimeout(function(){for(var s=0;s<t.strings.length;++s)t.sequence[s]=s;t.shuffle&&(t.sequence=t.shuffleArray(t.sequence)),t.typewrite(t.strings[t.sequence[t.arrayPos]],t.strPos)},t.startDelay)},build:function(){var s=this;if(this.showCursor===!0&&(this.cursor=t('<span class="typed-cursor">'+this.cursorChar+"</span>"),this.el.after(this.cursor)),this.stringsElement){s.strings=[],this.stringsElement.hide();var e=this.stringsElement.find("p");t.each(e,function(e,i){s.strings.push(t(i).html())})}this.init()},typewrite:function(t,s){if(this.stop!==!0){var e=Math.round(70*Math.random())+this.typeSpeed,i=this;i.timeout=setTimeout(function(){var e=0,r=t.substr(s);if("^"===r.charAt(0)){var o=1;/^\^\d+/.test(r)&&(r=/\d+/.exec(r)[0],o+=r.length,e=parseInt(r)),t=t.substring(0,s)+t.substring(s+o)}if("html"===i.contentType){var n=t.substr(s).charAt(0);if("<"===n||"&"===n){var a="",h="";for(h="<"===n?">":";";t.substr(s).charAt(0)!==h;)a+=t.substr(s).charAt(0),s++;s++,a+=h}}i.timeout=setTimeout(function(){if(s===t.length){if(i.options.onStringTyped(i.arrayPos),i.arrayPos===i.strings.length-1&&(i.options.callback(),i.curLoop++,i.loop===!1||i.curLoop===i.loopCount))return;i.timeout=setTimeout(function(){i.backspace(t,s)},i.backDelay)}else{0===s&&i.options.preStringTyped(i.arrayPos);var e=t.substr(0,s+1);i.attr?i.el.attr(i.attr,e):i.isInput?i.el.val(e):"html"===i.contentType?i.el.html(e):i.el.text(e),s++,i.typewrite(t,s)}},e)},e)}},backspace:function(t,s){if(this.stop!==!0){var e=Math.round(70*Math.random())+this.backSpeed,i=this;i.timeout=setTimeout(function(){if("html"===i.contentType&&">"===t.substr(s).charAt(0)){for(var e="";"<"!==t.substr(s).charAt(0);)e-=t.substr(s).charAt(0),s--;s--,e+="<"}var r=t.substr(0,s);i.attr?i.el.attr(i.attr,r):i.isInput?i.el.val(r):"html"===i.contentType?i.el.html(r):i.el.text(r),s>i.stopNum?(s--,i.backspace(t,s)):s<=i.stopNum&&(i.arrayPos++,i.arrayPos===i.strings.length?(i.arrayPos=0,i.shuffle&&(i.sequence=i.shuffleArray(i.sequence)),i.init()):i.typewrite(i.strings[i.sequence[i.arrayPos]],s))},e)}},shuffleArray:function(t){var s,e,i=t.length;if(i)for(;--i;)e=Math.floor(Math.random()*(i+1)),s=t[e],t[e]=t[i],t[i]=s;return t},reset:function(){var t=this;clearInterval(t.timeout);var s=this.el.attr("id");this.el.after('<span id="'+s+'"/>'),this.el.remove(),"undefined"!=typeof this.cursor&&this.cursor.remove(),t.options.resetCallback()}},t.fn.typed=function(e){return this.each(function(){var i=t(this),r=i.data("typed"),o="object"==typeof e&&e;r||i.data("typed",r=new s(this,o)),"string"==typeof e&&r[e]()})},t.fn.typed.defaults={strings:["These are the default values...","You know what you should do?","Use your own!","Have a great day!"],stringsElement:null,typeSpeed:0,startDelay:0,backSpeed:0,shuffle:!1,backDelay:500,loop:!1,loopCount:!1,showCursor:!0,cursorChar:"|",attr:null,contentType:"html",callback:function(){},preStringTyped:function(){},onStringTyped:function(){},resetCallback:function(){}}}(window.jQuery);
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/in-view@0.6.1"></script>		
+		<script>var formatThousandsNoRounding = function(n, dp){
+  var e = '', s = e+n, l = s.length, b = n < 0 ? 1 : 0,
+      i = s.lastIndexOf(','), j = i == -1 ? l : i,
+      r = e, d = s.substr(j+1, dp);
+  while ( (j-=3) > b ) { r = '.' + s.substr(j, 3) + r; }
+  return s.substr(0, j + 3) + r + 
+    (dp ? ',' + d + ( d.length < dp ? 
+        ('00000').substr(0, dp - d.length):e):e);
+};
 
-$(function(){
-  $('.text').typed({
-    strings: [
-      "Oops! It looks like you're lost. Page not found... <br /> ^1000" + 
-      "Sorry about that. <br /> ^1000" +
-      "I'm probably working on something that has blown up. <br /> ^1000" +
-	  " <br /> ^1000" +
-      "Go back <a href='https://me.pxdawn.com/'>home</a> and start over."
-    ],
-    typeSpeed: 0,
-    showCursor: false
-  });
-});</script>
+var hasRun = false;
+
+inView('#countUp').on('enter', function() {
+    if (hasRun == false) {
+        $('.number').each(function() {
+            var $this = $(this),
+                countTo = $this.attr('data-count');
+
+            $({ countNum: $this.text()}).animate({
+                countNum: countTo
+            },
+            {
+                duration: 2000,
+                easing:'linear',
+                step: function() {
+                    $this.text(formatThousandsNoRounding(Math.floor(this.countNum)));
+                },
+                complete: function() {
+                    $this.text(formatThousandsNoRounding(this.countNum));
+                }
+            });
+        });
+        hasRun = true;
+    }
+});</script>  
+          
 	</body>
 </html>
